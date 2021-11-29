@@ -4,27 +4,40 @@ import MovieDisplay from './moviedisplay';
 
 function SearchBar()
 {
-    var [searchvalue,setsearchvalue]=useState(' ');
-    const searchChange=(e)=>{
-        setsearchvalue(e.target.value);
-        movie();
-    }
+    const [searchvalue,setsearchvalue]=useState(" ");
     const[movieresults,setmovieresults]=useState([]);
-    const movie= async()=>{
-        const movieFetch=await fetch(`https://api.themoviedb.org/3/search/movie?api_key=56665026e3870c33d4fef3747976d333&query=${searchvalue}&page=1&include_adult=false`)
-        const data=await movieFetch.json();
-        //console.log(data);
-        setmovieresults(data.results);
-        console.log(movieresults)
-    }; 
+    const searchChange=(e)=>{
+        e.preventDefault();
+        setsearchvalue(e.target.value);
+        console.log(e.target.value)
+        fetch(`https://api.themoviedb.org/3/search/movie?api_key=56665026e3870c33d4fef3747976d333&query=${e.target.value}&page=1&include_adult=false`)
+        .then((response)=>{
+            return response.json();
+        })
+        .then((data)=>{
+
+            if(!data.errors)
+        {
+            setmovieresults(data.results);
+        }
+        else
+        {
+            setmovieresults([])
+        }
+        
+        })
+        
+        
+    } 
     return(
         <div className="searchbar">
             <input type="text" onChange={searchChange} />
-                {
+                {movieresults.length>0 &&(
                 movieresults.map((movie)=>(
                     <MovieDisplay moviedata={movie} />
                 ))
-                }
+
+                )}
             
             
         </div>
