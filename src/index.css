@@ -2,12 +2,15 @@
 body
 {
     margin: 0;
+    background-color: #222831;
 }
 h1
 {
     font-family: 'Roboto',sans-serif;
+    color: #00ADB5;
 }
 p
 {
     font-family: 'Roboto',sans-serif;
+    color: #EEEEEE;
 }

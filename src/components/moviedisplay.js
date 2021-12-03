@@ -7,14 +7,23 @@ function MovieDisplay(moviedata)
     return(
     <div className="moviecard">
         <div className="moviepos">
-        <img src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title} />
-        </div>
-       
-        <div className="moviedes">
-            <h1>{movie.title}</h1>
-            <p>{movie.overview}</p>
+        <img className="pos" src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`} alt={movie.title} />
+        <div className="titlediv">
+        <h1 className="title">{movie.title}</h1>
+        <hr />
+
         </div>
         
+        </div>
+       
+        <div className="moviedescard">
+            
+            <p className="moviedes"><strong>Release Date - </strong>{movie.release_date}</p>
+            <hr />
+            <p className="moviedes"><strong>Description</strong> <br />{movie.overview}</p>
+            <hr />
+        </div>
+         
     </div>
     )
 }
