@@ -31,7 +31,9 @@ function SearchBar()
     } 
     return(
         <div className="searchbar">
-            <input type="text" onChange={searchChange} />
+            <div className="searchdiv">
+            <input type="text" class="search" onChange={searchChange} />
+            </div>
                 {movieresults.length>0 &&(
                 movieresults.map((movie)=>(
                     <MovieDisplay moviedata={movie} />

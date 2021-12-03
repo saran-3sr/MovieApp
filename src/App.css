@@ -1,0 +1,21 @@
+.searchbar
+{
+    width:75%;
+    margin:auto;
+    border: 3px solid green;
+}
+.searchdiv
+{
+    width: 50%;
+    margin: auto;
+    border: 2px solid red;
+    
+}
+.search
+{
+    width: 90%;
+}
+.moviecard
+{
+   border: 3px solid blue; 
+}
